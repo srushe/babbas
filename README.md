@@ -50,7 +50,7 @@ This results in `photos` being included correctly included in both the path used
 
 ##### Token Verification environment variables
 
-Babbas uses the [IndieAuth::TokenVerification](https://github.com/srushe/indieauth-token-verification/) ruby gem to verify an IndieAuth access token against a token endpoint, and the `TOKEN_ENDPOINT` and `DOMAIN` environment variables are required by that gem.
+Babbas uses the [IndieAuth::TokenVerification](https://code.deeden.co.uk/indieauth-token-verification/) ruby gem to verify an IndieAuth access token against a token endpoint, and the `TOKEN_ENDPOINT` and `DOMAIN` environment variables are required by that gem.
 
 `TOKEN_ENDPOINT` specifies the token endpoint to be used to validate the access token. Failure to specify `TOKEN_ENDPOINT` will result in a `IndieAuth::TokenVerification::MissingTokenEndpointError` error being raised.
 

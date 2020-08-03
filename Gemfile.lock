@@ -1,13 +1,8 @@
-GIT
-  remote: git@github.com:srushe/indieauth-token-verification
-  revision: 4396ba3e20b0b50d589c8b0b01e24404ccd083b5
-  specs:
-    indieauth-token-verification (0.2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
     dotenv (2.7.6)
+    indieauth-token-verification (0.2.1)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
@@ -29,9 +24,9 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
-  indieauth-token-verification!
+  indieauth-token-verification
   mime-types
   sinatra
 
 BUNDLED WITH
-   1.16.3
+   1.17.2

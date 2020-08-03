@@ -7,6 +7,6 @@ git_source(:github) {|repo_name| "git@github.com:#{repo_name}" }
 
 gem 'sinatra'
 gem 'dotenv'
-gem 'indieauth-token-verification', github: 'srushe/indieauth-token-verification'
+gem 'indieauth-token-verification'
 gem 'mime-types'
 
