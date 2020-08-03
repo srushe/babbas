@@ -1,7 +1,7 @@
 require 'fileutils'
 require 'mime/types'
 
-module MediaEndpoint
+module Babbas
   class File
     class EmptyFileError < StandardError; end
     class UnrecognisedTypeError < StandardError; end
