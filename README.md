@@ -2,70 +2,12 @@
 
 Babbas is a Media endpoint for use with an IndieWeb [Micropub](http://micropub.rocks/) endpoint. It is written in Ruby, as a [Sinatra](http://sinatrarb.com/) application, and supports IndieAuth authorisation, as well as being [content-addressable](https://en.wikipedia.org/wiki/Content-addressable_storage).
 
-## Requirements
+## What has happened to the project?
 
-* Ruby - the latest version (or one version back).
+TLDR: Project (`babbas`) is now [hosted on Sourcehut](https://code.deeden.co.uk/babbas) due to GitHub's continued collaboration with ICE (U.S. Immigration and Customs Enforcement).
 
-## Installation
+Hello :wave:, nice to see you! If you're here you're presumably looking for the project (`babbas`) that used to be here. The project still exists, it has just moved elsewhere. Let me tell you both why, and where you can find the project now.
 
-Babbas is currently used as the Media endpoint for my personal website (https://deeden.co.uk/) and, as such, is configured to work for me. It should work for someone else if properly configured (via `.env`). For my purposes I run Babbas through [Passenger](https://www.phusionpassenger.com/) on a [Dreamhost VPS](https://www.dreamhost.com/hosting/vps/).
+Given GitHub's [ongoing policy of collaborating with ICE](https://thenextweb.com/politics/2019/10/09/github-microsoft-trump-ice-contract/) I don't feel comfortable supporting the platform ([as](https://deeden.co.uk/notes/2019/10/24/085956/) [I've](https://deeden.co.uk/notes/2019/11/15/094544/) [mentioned](https://deeden.co.uk/notes/2019/11/20/160118/) [elsewhere](https://deeden.co.uk/notes/2020/04/14/165427/)), so I've gradually moved all of my repositories (both private and public) elsewhere.
 
-## Configuration
-
-### Environment variables
-
-Use of the application **requires** a number of environment variables to be specified, while others are optional. It does support [dotenv](https://github.com/bkeepers/dotenv) if that floats your boat.
-
-#### Required
-
-| Variable | Format | Purpose |
-| -------- | ------ | ------- |
-| ENDPOINT_URL | URL | The domain you want to serve media from. For example, I serve the files from `https://media.deeden.co.uk` |
-| ENDPOINT_BASE | Directory path | The base directory for where your media will be stored. |
-| DATA_DIRECTORY | Directory path | A more specific directory (within `ENDPOINT_BASE`) for where your media will be stored. |
-| TOKEN_ENDPOINT | URL | The token endpoint used to verify any IndieAuth token |
-| DOMAIN | URL | The domain any IndieAuth token will be verified to be valid for |
-
-##### `ENDPOINT_BASE` vs `DATA_DIRECTORY`
-
-What is the difference between `ENDPOINT_BASE` and `DATA_DIRECTORY`, you ask?
-
-Let's say that you want to store your media in the `/www/media/` directory, and have your media links served from the root of a site, such as `https://example.com/`. In that case you would set the following values (similar to what I use)...
-
-| Variable | Value |
-| -------- | ----- |
-| ENDPOINT_URL | `https://example.com/` |
-| ENDPOINT_BASE | `/www/media` |
-| DATA_DIRECTORY | None/Unset |
-
-However maybe you'd prefer to serve your media from a different path, such as `https://example.com/photos/`. In this case you could configure it as follows...
-
-| Variable | Value |
-| -------- | ----- |
-| ENDPOINT_URL | `https://example.com/` |
-| ENDPOINT_BASE | `/www/media` |
-| DATA_DIRECTORY | `photos` |
-
-This results in `photos` being included correctly included in both the path used to save the file, and the url used to refer to the file.
-
-##### Token Verification environment variables
-
-Babbas uses the [IndieAuth::TokenVerification](https://code.deeden.co.uk/indieauth-token-verification/) ruby gem to verify an IndieAuth access token against a token endpoint, and the `TOKEN_ENDPOINT` and `DOMAIN` environment variables are required by that gem.
-
-`TOKEN_ENDPOINT` specifies the token endpoint to be used to validate the access token. Failure to specify `TOKEN_ENDPOINT` will result in a `IndieAuth::TokenVerification::MissingTokenEndpointError` error being raised.
-
-`DOMAIN` specifies the domain we expect to see in the response from the validated token. It should match that specified when the token was first generated (presumably your website URL). Failure to specify `DOMAIN` will result in a `IndieAuth::TokenVerification::MissingDomainError` error being raised.
-
-## Contributing
-
-While Babbas is written with a view to "[self-dogfooding](https://indieweb.org/selfdogfood)" I'm still happy for other people to use and contribute to the project. Bug reports and pull requests are welcome on GitHub at https://github.com/srushe/babbas. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## License
-
-This application is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-## Babbas?
-
-![Babbas, a genie from Yonderland](static/babbas.png)
-
-Babbas is a genie from the TV series [Yonderland](https://en.wikipedia.org/wiki/Yonderland). He is tasked with looking after a video message for one of the lead characters, hence his use as the name for my media endpoint.
+I've hoped that GitHub would cancel their policy ([as do many of the staff](https://www.washingtonpost.com/context/letter-from-github-employees-to-ceo-about-the-company-s-ice-contract/fb280de9-2bc3-40d5-b1a5-e3b954bf0d25/), including good people I know), but nothing has happened, so I've moved. You can find the [project at Sourcehut](https://code.deeden.co.uk/babbas), as well as [issue tracking](https://code.deeden.co.uk/babbas/issues). [Patches](https://code.deeden.co.uk/babbas/patches) will also still be gratefully received.
